@@ -162,8 +162,8 @@ if __name__ == '__main__':
         client = SouShuBaClient(urlparse(url).hostname,
                                 os.environ.get('SOUSHUBA_USERNAME', "USERNAME"),
                                 os.environ.get('SOUSHUBA_PASSWORD', "PASSWORD"))
-                client.login()
-                client.space()
+        client.login()
+        client.space()
         try:
             credit = client.credit()
             logger.info(f'{client.username} have {credit} coins!')

@@ -169,4 +169,7 @@ if __name__ == '__main__':
             logger.info(f'{client.username} have {credit} coins!')
         except Exception as e:
             logger.warning(f'credit query failed: {e}')
+    except Exception as e:
+        logger.error(e)
+        sys.exit(1)
             

@@ -162,10 +162,11 @@ if __name__ == '__main__':
         client = SouShuBaClient(urlparse(url).hostname,
                                 os.environ.get('SOUSHUBA_USERNAME', "USERNAME"),
                                 os.environ.get('SOUSHUBA_PASSWORD', "PASSWORD"))
-        client.login()
-        client.space()
-        credit = client.credit()
-        logger.info(f'{client.username} have {credit} coins!')
-    except Exception as e:
-        logger.error(e)
-        sys.exit(1)
+                client.login()
+                client.space()
+        try:
+            credit = client.credit()
+            logger.info(f'{client.username} have {credit} coins!')
+        except Exception as e:
+            logger.warning(f'credit query failed: {e}')
+            
